@@ -1,0 +1,8 @@
+{
+    "repository": {
+        "url": "https://data.ct.gov/resource/&dataidx",
+        "alturl": "https://data.ct.gov/api/views/&dataidx",
+        "indexfile": "./data/dataidx.json",
+        "outputdirectory": "./data"
+    }
+}
