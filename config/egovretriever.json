@@ -1,8 +1,8 @@
 {
     "repository": {
-        "url": "https://data.ct.gov/resource/&dataidx",
+        "url": "https://data.ct.gov/resource/&dataidx.json?$limit=50000&$offset=&dsoffset",
         "alturl": "https://data.ct.gov/api/views/&dataidx",
         "indexfile": "./data/dataidx.json",
-        "outputdirectory": "./data"
+        "outputdirectory": "/Users/edwardfoley/ctopendata"
     }
 }
