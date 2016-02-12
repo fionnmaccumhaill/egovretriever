@@ -29,12 +29,16 @@ function getMissingFiles() {
 }
 
 function runRetrieve() {
-    var theURL = configJSON["repository"].url;
+   // var theURL = configJSON["repository"].url;
     var idxLength = theDataIndex.length;
+    console.log('In index.js indexLength:'+idxLength);
     for (var i=0; i<idxLength; i++) {
         var dindex = theDataIndex[i].dataId;
-        var url = theURL.replace("&dataidx",dindex)+".json";
-        theRetriever.getURL(url, dindex);
+    //    var url = theURL.replace("&dataidx",dindex);
+        var url = theRetriever.buildURL(dindex, 0);
+        if(theDataIndex[i].dataType!='typeMap') {
+            theRetriever.getURL(url, dindex, 0);
+        }
     }
 }
 
@@ -49,11 +53,22 @@ function runFix() {
     }
 }
 
+function runStats() {
+    var idxLength = theDataIndex.length;
+    console.log('Running stats');
+    console.log('Files in dataidx:'+idxLength);
+    var missingFiles = getMissingFiles();
+    var missingLength = missingFiles.length;
+    console.log('Number of files missing:'+missingLength);
+}
+
 switch (posArg)
 {
     case 'retrieve': runRetrieve();
         break;
     case 'fix': runFix();
+        break;
+    case 'stats': runStats();
         break;
     default: console.log('bad arg');
 }
